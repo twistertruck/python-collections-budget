@@ -1,3 +1,4 @@
+from.import Expenses
 class BudgetList:
     def __init__(self, budget):   
         self.budget = budget
