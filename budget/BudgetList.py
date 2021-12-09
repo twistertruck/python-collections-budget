@@ -12,7 +12,16 @@ class BudgetList:
         else:
             self.overages.append(item)
             self.sum_overages += item
-            
+    def __len__(self):
+        return self.expenses.__len__() = self.overages.__len__()   
+
+def main():
+    myBudgetList = BudgetList(1200)
+    expenses = Expense.Expenses()
+    expenses.read_expenses('data/spending_data.csv')
+    for expense in expenses.list:
+        myBudgetList.append(expense.amount)
+
 
 
         
