@@ -1,4 +1,4 @@
-import csv
+ import csv
 from datetime import datetime
 
 class Expense():
@@ -25,20 +25,6 @@ class Expenses():
                 self.list.append(Expense(row[0],row[1], row[2], amount))
                 self.sum += amount
 
-    def categorize_set_comprehension(self):
-        necessary_expenses = {x for x in self.list 
-                            if x.category == 'Phone' or x.category == 'Auto and Gas' or 
-                                x.category == 'Classes'  or x.category == 'Utilities' or 
-                                x.category == 'Mortgage'}
-
-        food_expenses = {x for x in self.list 
-                            if x.category == 'Groceries' or x.category == 'Eating Out'}
-
-        unnecessary_expenses = set(self.list) - necessary_expenses - food_expenses
-
-        return [necessary_expenses, food_expenses, unnecessary_expenses]
-
-        
     def categorize_for_loop(self):
             necessary_expenses = set()
             food_expenses = set()
@@ -54,6 +40,16 @@ class Expenses():
                     unnecessary_expenses.add(i)
             
             return [necessary_expenses, food_expenses, unnecessary_expenses]
+            return [necessary_expenses, food_expenses, unnecessary_expenses]
 
-    
-            
+    def categorize_set_comprehension(self):
+        neccessary_expenses = {x for x in self.list
+                                if x.categories == 'Phone' or x.categories == 'Auto and Gas' or 
+                                x.categories == 'Classes' or x.categories == 'Utilities' or
+                                x.categories == 'Mortgage'}
+        food_expenses = {x for x in self.list
+                        if x.category == 'Groceries' or x.category == 'Eating Out'}
+
+        unneccesary_expenses = set(self.list) - neccessary_expenses - food_expenses
+
+        return [neccessary_expenses, food_expenses, unneccesary_expenses]
